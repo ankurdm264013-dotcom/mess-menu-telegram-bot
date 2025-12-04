@@ -96,7 +96,7 @@ def reminder_loop(updater):
         now = datetime.now(IST)
         current_time = now.time()
 
-        # Define reminder times (24h format, IST)
+        # Reminder times (IST)
         breakfast_time = time(8, 0)
         lunch_time = time(13, 0)
         dinner_time = time(20, 0)
@@ -135,7 +135,6 @@ def main():
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
 
-    # Register command handlers
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("today", today))
     dp.add_handler(CommandHandler("tomorrow", tomorrow))
@@ -143,11 +142,9 @@ def main():
     dp.add_handler(CommandHandler("lunch", lunch))
     dp.add_handler(CommandHandler("dinner", dinner))
 
-    # Start reminder thread
     t = Thread(target=reminder_loop, args=(updater,), daemon=True)
     t.start()
 
-    # Start polling (keep bot running)
     updater.start_polling()
     updater.idle()
 
