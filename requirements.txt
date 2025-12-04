@@ -4,3 +4,4 @@ pillow
 pytesseract
 schedule
 python-dotenv
+standard-imghdr
