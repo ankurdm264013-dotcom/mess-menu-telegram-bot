@@ -1,0 +1,8 @@
+python-telegram-bot==20.8
+pytz
+pillow
+pytesseract
+schedule
+fastapi
+uvicorn
+python-dotenv
